@@ -1,0 +1,151 @@
+html,
+body {
+  overflow-x: hidden; /* Prevent scroll on narrow devices */
+}
+
+body {
+  padding-top: 56px;
+}
+
+@media (max-width: 991.98px) {
+  .offcanvas-collapse {
+    position: fixed;
+    top: 56px; /* Height of navbar */
+    bottom: 0;
+    left: 100%;
+    width: 100%;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    overflow-y: auto;
+    visibility: hidden;
+    background-color: #343a40;
+    transition: transform .3s ease-in-out, visibility .3s ease-in-out;
+  }
+  .offcanvas-collapse.open {
+    visibility: visible;
+    transform: translateX(-100%);
+  }
+}
+
+.nav-scroller .nav {
+  color: rgba(255, 255, 255, .75);
+}
+
+.nav-scroller .nav-link {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  font-size: .875rem;
+  color: #6c757d;
+}
+
+.nav-scroller .nav-link:hover {
+  color: #007bff;
+}
+
+.nav-scroller .active {
+  font-weight: 500;
+  color: #343a40;
+}
+
+.bg-purple {
+  background-color: #6f42c1;
+}
+
+.retour{
+text-decoration: none;
+
+}
+.positionaction{
+  display: flex;
+  gap: 5px;
+  align-items: flex-end;
+  justify-content: end;
+}
+.act{
+  position: relative;
+left: 140px;
+}
+.dg{
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.cadretableau{
+  display: flex;
+  flex-direction: column;
+width: 85%;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.conect{
+
+  width: 50%;
+  margin-left: 330px;
+}
+.email{
+  font-weight: bold;
+}
+.pass{
+  margin-left: 120px;
+  margin-bottom: 20px;
+}
+.champs{
+  justify-content: center;
+  text-align: center;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: black;
+}
+.ajout{
+  text-decoration: none;
+  
+}
+a{
+  text-decoration: none;
+  color:white;
+  font-weight: bold;
+}
+.decon{
+  color: #0b7af0be;
+  text-decoration: underline;
+  
+}
+li{
+  font-size: large;
+  font-weight: bold;
+ justify-content: space-between;
+}
+.accueil{
+   margin-left: 150px;
+}
+.accueil2{
+  margin-left: 350px;
+}
+.bord{
+  color: rgb(17, 142, 17);
+}
+.produit{
+  background-color:black
+}
+.details{
+  margin-top: 6px;
+  margin-left: 150px;
+}
+.disposition{
+  display: flex;
+  gap: 19px;
+}
+/* .disposition2{
+  display: flex;
+  gap: 19px;
+} */
+
+
+.tailleimageproduit{
+  width: 300px;
+  height: 200px;
+}
