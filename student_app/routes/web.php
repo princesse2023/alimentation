@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\adminController;
+use App\Http\Controllers\connectController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -28,6 +29,7 @@ use Illuminate\Support\Facades\Route;
  Route::get('liste2',[adminController::class ,'bord2'])->name('liste2');
 
  Route::post('/connexiontraitement',[adminController::class ,'authenticate'])->name('traitement_login');
+ Route::post('/verifconect',[connectController::class ,'verifconect'])->name('verifconect');
 
  Route::get('ajp',[adminController::class ,'form']);
  Route::get('mdf',[adminController::class ,'modform']);
@@ -42,7 +44,8 @@ use Illuminate\Support\Facades\Route;
  Route::post('cate',[adminController::class ,'form_cat'])->name('cat_formulaire');
 
  Route::get('accueil',[adminController::class ,'cueillle']);
- Route::get('details',[adminController::class ,'imagedetails']);
+ Route::get('details/{produit}',[adminController::class ,'imagedetails']);
+ Route::get('retour',[adminController::class ,'retour'])->name('accueil');
 
 //  Route::get('/accueil', function () {
 //   return view('pageaccueil');

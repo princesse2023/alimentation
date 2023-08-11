@@ -64,7 +64,7 @@
                         <li class="list-group-item">Prix: {{$produit->prix}}</li>
                         <li class="list-group-item">Category: {{$produit->category->nom}}</li>
                     </ul>
-                    <a href="{{url('details/'.$produit->id)}}" class="btn btn-warning">Dedtails</a>
+                    <a href="{{url('details/'.$produit->id)}}" class="btn btn-warning">Details</a>
 
                 </div>
             </div>

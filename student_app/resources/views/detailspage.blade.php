@@ -1,9 +1,9 @@
 <div class="row row-cols-3 row-cols-md-4 g-4">
-        @foreach( $produits as $produit)
+      
         <div class="col">
             <div class="card">
 
-                <img src="{{asset('photo/'.$produit->photo)}}" class="tailleimageproduit" alt="...">
+                <img src="{{asset('photo/'.$produit->photo)}}" class="tailleimageproduit" alt="..." width="200px" height="150px">
                 <div class="card-body">
                     <h5 class="card-title">Nom: {{$produit->nom}}</h5>
                     <ul class="list-group list-group-flush">
@@ -14,7 +14,11 @@
                     </ul>
                 </div>
             </div>
+            <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+            <a href="{{route('accueil')}}" class="btn btn-warning">retour</a>
+            </div>
         </div>
-        <a href="accueil" class="btn btn-warning">retour
-                    
-        @endforeach
+        <!-- <a href="accueil" class="btn btn-warning">retour -->
+        
+    
+     

@@ -21,7 +21,7 @@ class UserSeeder extends Seeder
             'prenom'=>'Karim',
             'email'=>' karim@gmail.com',
             'telephone'=>75676426,
-            'password' => bcrypt('azertyui'),
+            'password' => Hash::make('azertyui'),
         ]);
     }
 }

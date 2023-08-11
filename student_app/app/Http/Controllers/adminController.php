@@ -30,6 +30,11 @@ class adminController extends Controller
     {
         return view('connexion');
     }
+    public function retour()
+    {
+
+        return redirect('accueil');
+    }
     public function ajoutgerant()
     {
         return view('ajoutergerant');
@@ -37,7 +42,9 @@ class adminController extends Controller
 
     public function imagedetails($produit)
     {
-        return view('detailspage');
+        $produit = Produit::find($produit);
+
+        return view('detailspage', compact('produit'));
     }
 
     public function bord()
@@ -114,7 +121,7 @@ class adminController extends Controller
     {
         $util = produit::find($produit);
         $util->nom = $request->input('nom');
-        $util->prix = $request->input('prix');  
+        $util->prix = $request->input('prix');
         $util->date_production = $request->input('date_production');
         $util->date_peremtion = $request->input('date_peremtion');
         $util->category_id = $request->input('category_id');
@@ -137,10 +144,9 @@ class adminController extends Controller
         $util->nom = $request->input('nom');
         $util->prenom = $request->input('prenom');
         $util->email = $request->input('email');
-        $util->password = $request->input('password');
         $util->telephone = $request->input('telephone');
         $util->role_id = 2;
-        $util->password = bcrypt('password');
+        $util->password = bcrypt($request->input('password'));
         $util->save();
         return ('enregistré avec succes.');
         // return redirect('liste');
@@ -189,31 +195,23 @@ class adminController extends Controller
 
     public function authenticate(Request $request)
     {
-        $credentials = 2;
-        // $credentials = $request->validate([
-        //     'email' => 'required', 'email',
-        //     'password' => 'required',
-        // ]);
 
         $mail = $request->input('email');
-        //  $pass = $request->input('password');
-        //  $pass =;
-        //  return $mail.$pass;
-
-        // $client =User::where('nom','BADO')->first();
+        $pass = $request->input('password');
         $client = User::where('email', $mail)->first();
-        if ($client) {
-            //  if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-            return $client->nom;
-        } elseif (Auth::attempt($credentials) && Auth::user()->role_id == 2)
-         {
-            $request->session()->regenerate();
-            return 'manager';
-        } else {
 
-            return 'mo';
+        if (password_verify($pass, $client->password)) {
+            $request->session()->regenerate();
+            if ($client->role_id == 1) {
+                return redirect('liste'); 
+            } else {
+                return redirect('liste2');
+            }
+        } else {
+            echo 'Le mot de passe est invalide.';
         }
+
+
         //    return back()->withErrors([
         //              'email' => 'The provided credentials do not match our records.',
         //       ]);
